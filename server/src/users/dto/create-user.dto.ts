@@ -1,6 +1,6 @@
-import {IsNotEmpty} from "class-validator"
+import {IsNotEmpty, IsPhoneNumber} from "class-validator"
 
-export class createUserDto {
+export class CreateUserDto {
     @IsNotEmpty()
     readonly username: string;
 
@@ -9,4 +9,7 @@ export class createUserDto {
 
     @IsNotEmpty()
     readonly email: string;
+
+    // @IsPhoneNumber()
+    // readonly phone: string;
 }

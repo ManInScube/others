@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from './users.model';
-import { createUserDto } from './dto/create-user.dto';
+import { CreateUserDto } from './dto/create-user.dto';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -11,16 +11,16 @@ export class UsersService {
         private userModel: typeof User,
     ){}
 
-    findOne(filter:{
+    findUser(filter:{
         where: {id?: string; username?: string; email?: string};
     }) : Promise<User>{
         return this.userModel.findOne({...filter});
     }
 
-    async create(createUserDto: createUserDto,): Promise<User | {warningMessage: string}>{
+    async create(createUserDto: CreateUserDto,): Promise<User | {warningMessage: string}>{
         const user = new User();
 
-        const existingByEmail = await this.findOne({
+        const existingByEmail = await this.findUser({
             where: {email: createUserDto.email}
         })
 
