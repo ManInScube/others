@@ -11,7 +11,7 @@ export class UsersService {
         private userModel: typeof User,
     ){}
 
-    findUser(filter:{
+    findOne(filter:{
         where: {id?: string; username?: string; email?: string};
     }) : Promise<User>{
         return this.userModel.findOne({...filter});
@@ -20,7 +20,7 @@ export class UsersService {
     async create(createUserDto: CreateUserDto,): Promise<User | {warningMessage: string}>{
         const user = new User();
 
-        const existingByEmail = await this.findUser({
+        const existingByEmail = await this.findOne({
             where: {email: createUserDto.email}
         })
 

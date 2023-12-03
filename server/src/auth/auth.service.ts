@@ -8,7 +8,7 @@ export class AuthService {
     constructor(private readonly usersService: UsersService){}
 
     async validateUser(username: string, password: string ){
-        const user = await this.usersService.findUser({where: {username}});
+        const user = await this.usersService.findOne({where: {username}});
         if(!user) throw new UnauthorizedException('Invalid credentials');
 
         const passwordValid = await bcrypt.compare(password, user.password);
