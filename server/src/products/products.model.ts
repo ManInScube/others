@@ -27,5 +27,7 @@ export class Product extends Model {
     @Column({defaultValue: 0})
     in_stock: number;
 
-    //vendor and sale?
+    @Column
+    vendor_code: string;
+    //sale?
 }
