@@ -19,6 +19,8 @@ module.exports = {
       images: JSON.stringify([Array(7)].map(()=>`${faker.image.urlLoremFlickr({ category: 'fashion' })}?random=${faker.number.int(30)}`)),
       in_stock: faker.number.int(10),
       vendor_code: faker.internet.password(),
+      new: false,
+      bestseller: false,
       createdAt: new Date(),
       updatedAt: new Date()
     })),

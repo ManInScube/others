@@ -29,5 +29,10 @@ export class Product extends Model {
 
     @Column
     vendor_code: string;
-    //sale?
+
+    @Column({defaultValue: false})
+    new: boolean
+
+    @Column({defaultValue: false})
+    bestseller: boolean
 }

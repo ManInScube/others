@@ -26,6 +26,24 @@ export class ProductsService {
         });
     }
 
+    async findBestseller(): Promise<{count: number; rows: Product[]}>{
+        return this.productModel.findAndCountAll({
+            where: {bestseller: true},
+        });
+    }
+
+    async findNew(): Promise<{count: number; rows: Product[]}>{
+        return this.productModel.findAndCountAll({
+            where: {new: true},
+        });
+    }
+
+    async getBestseller(bestseller: boolean): Promise<Product>{
+        return this.productModel.findOne({
+            where: {bestseller: true},
+        });
+    }
+
     async findOneByName(name: string): Promise<Product>{
         return this.productModel.findOne({
             where: {name},
@@ -35,7 +53,7 @@ export class ProductsService {
     async searchByString(str: string): Promise<{count: number; rows: Product[]}>{
         return this.productModel.findAndCountAll({
             limit: 10,
-            where: {name: {[Op.like]: `%${str}%`}},
+            where: { name: { [Op.like]: `%${str}%` } }
         });
     }
 }

@@ -36,6 +36,14 @@ module.exports = {
       vendor_code:  {
         type: Sequelize.STRING
       },
+
+      new:  {
+        type: Sequelize.BOOLEAN
+      },
+
+      bestseller:  {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
