@@ -7,6 +7,7 @@ import { databaseConfig } from './config/configuration';
 import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
+import { PaymentModule } from './payment/payment.module';
 
 
 @Module({
@@ -21,7 +22,8 @@ import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
     UsersModule,
     AuthModule,
     ProductsModule,
-    ShoppingCartModule
+    ShoppingCartModule,
+    PaymentModule
   ],
   controllers: [],
   providers: [],
