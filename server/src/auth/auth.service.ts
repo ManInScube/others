@@ -19,7 +19,7 @@ export class AuthService {
             return{
                 userId: user.id,
                 username: user.username,
-                password: user.email
+                email: user.email
             }
         }
 

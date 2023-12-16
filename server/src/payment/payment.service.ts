@@ -15,13 +15,13 @@ export class PaymentService {
                     'Idempotence-Key': Date.now()
                 },
                 auth: {
-                    username: "",
-                    password: ""
+                    username: "291703",
+                    password: "test_0fT1c_bQZLE20ww3yGpVSmvlXD6ehuzRZr_4MBqi7SA"
                 },
                 data: {
                     amount:{
                         value: makePaymentDto.amount,
-                        currency: ""
+                        currency: "RUB"
                     },
                     capture: true,
                     confirmation:{
