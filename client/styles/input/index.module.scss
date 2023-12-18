@@ -1,0 +1,37 @@
+.input{
+
+    border-bottom: 1px solid #4F4F4F;
+    //height: 40px;
+    position: relative;
+    line-height: 32.68px;
+    font-size: 24px;
+    input{
+        border: 0;
+        width: 100%;
+        outline: none;
+        font-size: 16px;
+    }
+    
+    label{
+        position: absolute;
+        left: 0;
+        transition: .5s;
+        color: #4F4F4F;
+        font-size: 24px;
+
+    }    
+
+    & input:focus ~ label{
+        transform: translateY(-15px);
+        font-size: 14px;
+    }
+
+    & input:not(:placeholder-shown) ~ label{
+        transform: translateY(-15px);
+        font-size: 14px;
+    }
+}
+
+// .input:focus ~ label{
+//     color: red;
+// }
