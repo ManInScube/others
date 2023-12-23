@@ -30,6 +30,15 @@
         transform: translateY(-15px);
         font-size: 14px;
     }
+
+    span{
+        color:  #F55959;
+        font-family: 'Open Sans';
+        font-size: 14px;
+        position: absolute;
+        left: 0;
+        bottom: -25px;
+    }
 }
 
 // .input:focus ~ label{

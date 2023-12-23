@@ -18,7 +18,7 @@ export default function Auth() {
       </Head>
       <Modal childred={<AuthPage/>} />
 
-      <Cross size={60}/>
+      {/* <Cross size={60}/> */}
     </>
   )
 }

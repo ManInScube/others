@@ -8,6 +8,14 @@ export interface IInputs{
 }
 
 export interface IAuthPageInput{
-    register: UseFormRegister<IInputs>,
+    register: UseFormRegister<IInputs>
     errors: FieldErrors<IInputs>
+}
+
+export interface ISignUpFx{
+    url: string;
+    name: string;
+    lastname: string;
+    email: string;
+    password: string;
 }
