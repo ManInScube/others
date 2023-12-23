@@ -35,7 +35,7 @@ export class LoginCheckResponse{
     userId: number
 
     @ApiProperty({example: "Rustem"})
-    username: string
+    email: string
 
     @ApiProperty({example: "Rustem123"})
     password: string
@@ -46,13 +46,19 @@ export class SignupResponse{
     userId: number
 
     @ApiProperty({example: "Rustem"})
-    username: string
+    name: string
 
-    @ApiProperty({example: "Hashed$Rustem$123"})
-    password: string
+    @ApiProperty({example: "Zaripov"})
+    lastname: string
 
+    @ApiProperty({example: "8-999-999-9999"})
+    phone: string
+    
     @ApiProperty({example: "rustem@tatmail.ru"})
     email: string
+    
+    @ApiProperty({example: "Hashed$Rustem$123"})
+    password: string
 
     @ApiProperty({example: "2023"}) //TODO:-Proper format
     updatedAt: string

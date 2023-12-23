@@ -29,10 +29,12 @@ export class UsersService {
         }
 
         const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
-        user.username = createUserDto.username;
-        user.password = hashedPassword;
+        user.name = createUserDto.name;
+        user.lastname = createUserDto.lastname;
+        user.phone = createUserDto.phone;
         user.email = createUserDto.email;
-
+        user.password = hashedPassword;
+        
         return user.save();
     }
 }
