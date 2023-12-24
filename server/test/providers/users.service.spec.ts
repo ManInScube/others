@@ -39,7 +39,9 @@ describe('User Service', ()=>{
 
     it('should create user', async ()=>{
         const newUser = {
-            username: "TestName",
+            name: "TestName",
+            lastname: "TestLastname",
+            phone: "99999999999",
             email: "TestName@mail.com",
             password: "TestPass"
         };
@@ -48,7 +50,7 @@ describe('User Service', ()=>{
         
         const passwordIsValid = await bcrypt.compare(newUser.password, user.password);
         
-        expect(user.username).toBe(newUser.username);
+        expect(user.name).toBe(newUser.name);
         expect(passwordIsValid).toBe(true);
         expect(user.email).toBe(newUser.email);
     });

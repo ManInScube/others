@@ -21,3 +21,9 @@ export interface ISignUpFx{
     email: string;
     password: string;
 }
+
+export interface ISignInFx{
+    url: string;
+    username: string;
+    password: string;
+}

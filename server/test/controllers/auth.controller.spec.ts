@@ -12,9 +12,11 @@ import * as bcrypt from 'bcrypt';
 import { AuthModule } from "src/auth/auth.module";
 
 const mockedUser = {
-    username: "Marat",
+    name: "Name",
+    lastname: "Lastname",
+    phone:  "99999999999",
     email: "Marat@tatmail.com",
-    password: "Marat123"
+    password: "Pass123"
 }
 
 describe('Auth Controller', ()=>{
@@ -54,38 +56,41 @@ describe('Auth Controller', ()=>{
 
         const hashedPassword = await bcrypt.hash(mockedUser.password, 10);
 
-        user.username = mockedUser.username;
-        user.password = hashedPassword;
+        user.name = mockedUser.name;
+        user.lastname = mockedUser.lastname;
+        user.phone = mockedUser.phone;
         user.email = mockedUser.email;
+        user.password = hashedPassword;
 
         return user.save();
+
     });
 
     afterEach(async () => {
-        await User.destroy({ where: { username: mockedUser.username } });
+        await User.destroy({ where: { email: mockedUser.email } });
     });
 
     it('should login user', async ()=>{
 
         const response = await request(app.getHttpServer())
         .post('/users/login')
-        .send({ username: mockedUser.username, password: mockedUser.password });
+        .send({ username: mockedUser.email, password: mockedUser.password });
   
-      expect(response.body.user.username).toBe(mockedUser.username);
-      expect(response.body.msg).toBe('Logged in');
       expect(response.body.user.email).toBe(mockedUser.email);
+      expect(response.body.msg).toBe('Logged in');
+      //expect(response.body.user.email).toBe(mockedUser.email);
     });
 
     it('should check if login', async()=>{
         const login = await request(app.getHttpServer())
         .post('/users/login')
-        .send({ username: mockedUser.username, password: mockedUser.password });
+        .send({ username: mockedUser.email, password: mockedUser.password });
 
         const loginCheck = await request(app.getHttpServer())
         .get('/users/login-check')
         .set('Cookie', login.headers['set-cookie']);
 
-        expect(loginCheck.body.username).toBe(mockedUser.username);
+        expect(loginCheck.body.name).toBe(mockedUser.name);
         expect(loginCheck.body.email).toBe(mockedUser.email);
     })
 
