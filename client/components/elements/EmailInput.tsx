@@ -25,7 +25,7 @@ export const EmailInput=({register, errors}: IAuthPageInput, {classNames}: IInpu
                 }
             })}
             />
-            <label htmlFor='name'>Email</label>
+            <label htmlFor='email'>Email</label>
             {errors.email && (
                 <span className='input_error'>{errors.email?.message}</span>
             )}

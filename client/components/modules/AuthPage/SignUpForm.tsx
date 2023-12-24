@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { signUpFx } from "@/app/api/auth";
 
 import styles from '@/styles/auth/index.module.scss'
+import { PhoneInput } from "@/components/elements/PhoneInput";
 
 
 
@@ -26,7 +27,8 @@ export const SignUpForm = () => {
           const userData = await signUpFx({
             url: '/users/signup',
             name: data.name,
-            lastname: data.name,
+            lastname: data.lastname,
+            phone: data.phone,
             password: data.password,
             email: data.email,
           })
@@ -36,6 +38,7 @@ export const SignUpForm = () => {
             console.log(userData);
             resetField('name');
             resetField('lastname');
+            resetField('phone');
             resetField('password');
             resetField('email');
         } catch (error) {
@@ -52,7 +55,8 @@ export const SignUpForm = () => {
 
             {/* сделать отдельный Input и сразу прокинуть пропсы */}
             <NameInput register={register} errors={errors} /> 
-            <LastnameInput register={register} errors={errors} /> 
+            <LastnameInput register={register} errors={errors} />
+            <PhoneInput register={register} errors={errors}/> 
             <EmailInput register={register} errors={errors} />
             <PasswordInput register={register} errors={errors} />
             <div className={styles.auth__button}>

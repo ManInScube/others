@@ -12,7 +12,7 @@ export class CreateUserDto {
     
     @ApiProperty({example: '8-999-999-9999'})
     @IsNotEmpty()
-    @IsPhoneNumber()
+    //@IsPhoneNumber({region: ('RU') })
     readonly phone: string;
 
     @ApiProperty({example: 'rustem@tatmail.ru'})

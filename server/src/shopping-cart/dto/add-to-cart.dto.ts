@@ -4,7 +4,7 @@ import {IsNotEmpty, IsOptional} from "class-validator"
 export class AddToCartDto {
     @ApiProperty({example: 'Rustem'})
     @IsNotEmpty()
-    readonly username: string;
+    readonly email: string;
 
     @ApiProperty({example: 1})
     @IsOptional()
