@@ -8,9 +8,10 @@ import { EmailInput } from "@/components/elements/EmailInput";
 import { PasswordInput } from "@/components/elements/PasswordInput";
 import { toast } from "react-toastify";
 import { signUpFx } from "@/app/api/auth";
-
-import styles from '@/styles/auth/index.module.scss'
 import { PhoneInput } from "@/components/elements/PhoneInput";
+import { showAuthError } from "@/utils/errors";
+import styles from '@/styles/auth/index.module.scss'
+
 
 
 
@@ -33,7 +34,7 @@ export const SignUpForm = () => {
             email: data.email,
           })
 
-            //if(!userData) return
+            if(!userData) return
 
             console.log(userData);
             resetField('name');
@@ -42,7 +43,7 @@ export const SignUpForm = () => {
             resetField('password');
             resetField('email');
         } catch (error) {
-            toast.error((error as Error).message);
+           showAuthError(error);
         }
     }
 

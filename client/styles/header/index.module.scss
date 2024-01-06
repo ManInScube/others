@@ -1,0 +1,117 @@
+ @import '../globals.scss';
+
+
+.flex-between{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container{
+    width: 100%;
+}
+
+.header{
+
+    @media (max-width:1366px) {
+            padding-left: 40px; 
+            padding-right: 35px;
+    }
+ 
+     @media (min-width:1367px) {
+            padding-left: 80px; 
+            padding-right: 70px;
+    }
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    width: 100%;
+    @extend .flex-between;
+    align-items: center;
+    background:  linear-gradient(180deg, #4E413A -21.89%, rgba(69, 59, 53, 0.18) 62.65%, rgba(75, 61, 54, 0.00) 95.17%);
+
+
+}
+
+.menu{
+    @extend .flex-between;
+}
+
+.nav{
+    @extend .flex-between;
+    align-items: center;
+    @media (max-width:1366px) {
+        a{ 
+         svg{
+             width: 100px;
+         }
+        } 
+     }
+    
+    @media (max-width:1366px) {
+       a{
+        font-size: 16px;
+       } 
+    }
+
+    @media (min-width:1367px) {
+        a{
+            font-size: 20px;
+
+        } 
+    }
+
+
+    a{
+        font-family: $opensans;
+        font-style: normal;
+        font-weight: 600;
+        color: #F8F4F1;
+    }
+
+    a:not(:last-child){
+        margin-right: 40px;
+    }
+
+}
+
+.header__right{
+    @extend .flex-between;
+    align-items: center;
+    a{
+        cursor: pointer;
+    }
+    span{
+        color:$color-beige;
+        text-align: center;
+        font-family: $grotesk;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: inline-block;
+    }
+
+    a:not(:last-child){
+        margin-right: 48px;
+    }
+
+    @media (max-width:1366px) {
+        a{ 
+            svg{
+                width: 25px;
+            }
+
+            span{
+                font-size: 26px;
+            }
+        } 
+    }
+
+    @media (min-width:1367px) {
+        span{
+            font-size: 32px;
+        }
+    }
+    
+}

@@ -1,0 +1,48 @@
+.headerSlider{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    button::before{
+        content: "\2022";
+        width: 10px;
+        height: 10px;
+        color: #828282;
+    } 
+
+    .slick-active button:before{
+        color: #000 !important;
+    }
+
+    ul{
+
+        li{
+            position: relative;
+            width: 20px;
+            height: 20px;
+        }
+
+
+
+
+
+
+        button{
+            // font-size: 0;
+            // line-height: 0;
+            display: block;
+            padding: 5px;
+            color: transparent;
+            border: 0;
+            outline: none;
+            background: transparent;
+            
+        }
+    }
+
+
+
+
+
+}
+

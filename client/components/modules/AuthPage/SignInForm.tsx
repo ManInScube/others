@@ -7,6 +7,7 @@ import { signInFx } from "@/app/api/auth"
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
 import styles from '@/styles/auth/index.module.scss'
+import { showAuthError } from "@/utils/errors"
 
 export const SignInForm = ()=> {
     const {
@@ -26,7 +27,7 @@ export const SignInForm = ()=> {
           resetField('email');
           resetField('password');
       } catch (error) {
-          toast.error((error as Error).message);
+          showAuthError(error);
       }
   }
 

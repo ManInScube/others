@@ -1,0 +1,26 @@
+$cygrotesk-font-path: "../public/fonts/CyGrotesk-Grand";
+$opensans-font-path: "../public/fonts/OpenSans-";
+
+@font-face {
+    src: url("#{$cygrotesk-font-path}Medium.otf");
+    font-family: "Cy Grotesk";
+    font-weight: 500;
+}
+
+@font-face {
+    src: url("#{$cygrotesk-font-path}Regular.otf");
+    font-family: "Cy Grotesk";
+    font-weight: 400;
+}
+
+@font-face {
+    src: url("#{$opensans-font-path}Regular.ttf");
+    font-family: "Open Sans";
+    font-weight: 400;
+}
+
+@font-face {
+    src: url("#{$opensans-font-path}SemiBold.ttf");
+    font-family: "Open Sans";
+    font-weight: 600;
+}
