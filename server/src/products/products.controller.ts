@@ -17,14 +17,14 @@ export class ProductsController {
 
     @ApiOkResponse({type: GetBestsellersResponse })
     @Get('bestsellers')
-    @UseGuards(AuthenticatedGuard)
+   // @UseGuards(AuthenticatedGuard)
     getBestsellers(){
         return this.productsService.findBestseller();
     }
 
     @ApiOkResponse({type: GetNewResponse})
     @Get('new')
-    @UseGuards(AuthenticatedGuard)
+   // @UseGuards(AuthenticatedGuard)
     getNew(){
         return this.productsService.findNew();
     }

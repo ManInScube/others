@@ -6,9 +6,12 @@ import { Button } from '@/components/elements/Button'
 import { AuthPage } from '@/components/templates/AuthPage/AuthPage'
 import { Modal } from '@/components/layout/Modal'
 import { Cross } from '@/components/elements/Cross'
-import { Header } from '@/components/modules/AuthPage/Header/Header'
-import { Dropdown } from '@/components/modules/AuthPage/Header/Dropdown'
+import { Header } from '@/components/modules/Header/Header'
+import { Dropdown } from '@/components/modules/Header/Dropdown'
 import favicon from '@/public/images/favicon.png';
+import { Footer } from '@/components/modules/Footer/Footer'
+import Layout from '@/components/layout/Layout'
+import { HomePage } from '@/components/templates/HomePage/HomePage'
 //import globalStyles from '../styles/globals.scss';
 
 export default function Auth() {
@@ -20,8 +23,12 @@ export default function Auth() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={favicon.src} />
       </Head>
-      <Header/>
-      <Modal childred={<AuthPage/>} />
+
+
+      <Layout>
+        {/* <Modal childred={<AuthPage/>} /> */}
+        <HomePage/>
+      </Layout>
 
       {/* <Cross size={60}/> */}
     </>

@@ -1,0 +1,24 @@
+@import '../../variables.scss';
+
+.footerList{
+    margin-top: 40px;
+
+    li{
+        list-style: none;
+
+        a{
+            font-family: $opensans;
+            font-size: 1.5em;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        &:not(:first-child){
+            margin-top: 24px;
+        }
+    }
+
+}

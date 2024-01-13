@@ -1,0 +1,76 @@
+@import '../variables.scss';
+
+.container{
+    padding: 40px 80px 40px 80px;
+}
+
+.footer{
+
+    // @media (max-width:1366px) {
+    //     font-size: 11px;
+    // }
+
+    border-top: 1px solid $color-black; //нужно в var
+    border-bottom: 1px solid $color-black;
+    @extend %flex-row;
+    color: $color-greyLight;
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    &Col{
+        &__title{
+            font-family: $opensans;
+            font-weight: 600;
+            font-size: 1.5em;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+
+        &__title:last-child{
+            margin-top: 80px;
+        }
+
+        &__list{
+            @extend %flex-col;
+            margin-top: 40px;
+            a{
+                font-family: $opensans;
+                font-size: 1.5em;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+
+            a:not(:first-child){
+                margin-top: 24px;
+            }
+        }
+
+
+
+        &__contact{
+            margin-top: 24px;
+        }
+
+
+    }
+
+    &Col:not(:nth-child(3)){
+        margin-right: 160px;
+    }
+
+    &__right{
+        align-self: flex-end;
+        margin-left: auto;
+        
+        p{
+            font-size: 0.875em;
+            font-family: $opensans;
+        }
+    }
+
+
+
+}

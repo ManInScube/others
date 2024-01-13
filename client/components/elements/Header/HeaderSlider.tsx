@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import testImg from '@/public/images/promo.png'
 import styles from '@/styles/header/header-slider/index.module.scss'
 import { ReactNode } from "react";
-
+//import "slick-carousel/slick/slick.css";
 
 
 

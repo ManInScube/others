@@ -1,0 +1,45 @@
+@import '../variables.scss';
+
+.card{
+    width: 100%;
+    border-bottom: 1px solid $color-black;
+    //width: 100%;
+    &__img{
+        position: relative;
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    a{
+        position: absolute;
+        right: 16px;
+        top: 16px;
+    }
+
+    &__info{
+        padding: 8px 0 8px 0;
+        @extend %flex-row;
+        justify-content: space-between;
+    }
+
+    &__productName, &__price{
+        color: #333;
+        font-family: $opensans;
+        font-size: 1.25em;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    &__brandName{
+        color: $color-grey;
+        font-family: Open Sans;
+        font-size: 1em;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+
+}

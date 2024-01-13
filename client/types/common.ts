@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { MultiValue, SingleValue } from "react-select";
 
 export interface IOption {
@@ -6,3 +7,7 @@ export interface IOption {
 }
 
 export type SelectOptionType = MultiValue<IOption> | SingleValue<IOption> | null
+
+export interface ILayoutProps{
+    children: ReactNode;
+}

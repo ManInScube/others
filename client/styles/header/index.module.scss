@@ -49,18 +49,17 @@
         } 
      }
     
-    @media (max-width:1366px) {
-       a{
-        font-size: 16px;
-       } 
-    }
+    // @media (max-width:1366px) {
+    //    a{
+    //     font-size: 16px;
+    //    } 
+    // }
 
-    @media (min-width:1367px) {
-        a{
-            font-size: 20px;
-
-        } 
-    }
+    // @media (min-width:1367px) {
+    //     a{
+    //         font-size: 20px;
+    //     } 
+    // }
 
 
     a{
@@ -68,6 +67,7 @@
         font-style: normal;
         font-weight: 600;
         color: #F8F4F1;
+        font-size: 1.25em;
     }
 
     a:not(:last-child){
