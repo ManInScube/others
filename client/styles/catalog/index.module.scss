@@ -1,0 +1,128 @@
+@import '../variables.scss';
+
+.catalog{
+
+    
+    &__title{
+        width: 100%;
+        border-bottom: 1px solid $color-black;
+        padding-bottom: 28px;
+        h2{
+            color: $color-black;
+            font-family: $grotesk;
+            font-size: 3.75em;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    }
+    &__options{
+        margin-top: 22px;
+        @extend %flex-row;
+        justify-content: space-between;
+        align-items: center;
+
+        a{
+            @extend %flex-row;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        svg{
+            margin-right: 12px;
+            width: 2.5em;
+        }
+        
+        span{
+            color: $color-black;
+            font-family: $grotesk;
+            font-size: 2.5em;      
+            font-weight: 400;
+        }
+
+        .sorting{
+            position: relative;
+
+            &__expand{
+                position: absolute;
+                width: 100%;
+                z-index: 10;
+            }
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template: auto/repeat(4, minmax(0, 1fr));
+        grid-gap: 12px 12px;
+        list-style: none;
+
+        }
+
+        &__div:nth-child(5){
+            grid-column: 1/span 2;
+            grid-row: 1/span 2; 
+
+            &>div>div:nth-child(2)::before{
+                padding-top: 18%;
+            }
+        }
+
+        &__div:nth-child(10){
+            grid-column: 3/span 2;
+            grid-row: 3/span 2; 
+
+            &>div>div:nth-child(2)::before{
+                padding-top: 18%;
+            }
+        }
+    
+
+        
+
+    &__content{
+        position: relative;
+        display: flex;
+    }    
+
+    &__filters{
+        // position: absolute;
+        // left: 0;
+        // top: 0;
+        //background-color: white;
+        width: 422px;
+    }
+
+
+    // //working
+    &__row{
+        @extend %flex-row;
+        justify-content: space-between;
+
+        &>{
+            .catalog__card{
+                flex: 0 0 24%;
+            }
+        }
+    }
+
+    &__block{
+        flex: 0 1 49%;
+    }
+    &__card{
+       // width: 50%;
+       display: flex;
+       flex: 0 0 44%;
+       margin-top: 24px;
+    }
+    &__rowBlock{
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        flex-wrap: wrap;
+        margin-top: -24px;
+    }
+    // //working
+
+}

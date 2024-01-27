@@ -1,0 +1,27 @@
+@import '../variables.scss';
+
+.profile{
+    @extend %flex-row;
+    justify-content: space-between;
+    width: 25%;
+    max-width: 422px;
+
+
+    &__menu{
+        a{
+            p{
+                font-size: 2em;
+            }
+
+            svg{
+                width: 3.5em;
+            }
+        }
+
+        
+        ul:last-child{
+            margin-top: 80px;
+        }
+    }
+
+}

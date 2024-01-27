@@ -9,15 +9,32 @@ import { Dropdown } from './Dropdown'
 import styles from '@/styles/header/index.module.scss'
 import { SearchInput } from '@/components/elements/Header/SearchInput'
 import { DropdownContainer } from '@/components/elements/Header/DropdownContainer'
+import { Modal } from '@/components/layout/Modal'
+import { AuthPage } from '@/components/templates/AuthPage/AuthPage'
+import { useRedirectByUserCheck } from '@/hooks/useRedirectByUserCheck'
 
 
 export const Header = () =>{
     const [open, setOpen] = useState<boolean>(false)
     const [searchOpen, setSearchOpen] = useState<boolean>(false)
-
+    const [authOpen, setAuthOpen] = useState<boolean>(false)
+    const [profileLink, setProfileLink] = useState<string>('')
+    //const {shouldLoadAuth} = useRedirectByUserCheck()
+    //const {shouldLoadContent} = useRedirectByUserCheck()
 
     function toggleDropdown(){
         setOpen(!open);
+    }
+
+    function toggleAuth(){
+        // if(shouldLoadContent){
+        //     setProfileLink('/profile')
+        //     return
+        // }
+        // if(shouldLoadContent){
+        //     setAuthOpen(!authOpen)
+        // }
+        
     }
 
     return(
@@ -25,7 +42,7 @@ export const Header = () =>{
             <div className={styles.header}> 
 
                 <nav className={styles.nav}>
-                    <Link href="/" legacyBehavior>
+                    <Link href="/" legacyBehavior >
                         <Logo/>
                     </Link>
                     <Link href="/cloth" legacyBehavior>
@@ -47,7 +64,13 @@ export const Header = () =>{
 
                 <div className={styles.header__right}>
                     <SearchIcon/>
-                    <UserIcon/>
+                
+
+                    
+                
+                    <UserIcon handler={toggleAuth}/>
+            
+                 
                     <FavouriteIcon/>
                     <div>
                         <CartIcon/>
@@ -60,6 +83,7 @@ export const Header = () =>{
 
             {open && <Dropdown/>}
             {searchOpen && <DropdownContainer content={<SearchInput/>}/> }
+            {authOpen && <Modal childred={<AuthPage/>} />}
 
         </header>
     )

@@ -27,3 +27,11 @@ export interface ISignInFx{
     username: string;
     password: string;
 }
+
+export interface IUser{
+    userId: string | number;
+    name: string;
+    lastname: string;
+    phone: string;
+    email: string;
+}

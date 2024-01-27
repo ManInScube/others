@@ -1,0 +1,62 @@
+@import '../variables.scss';
+
+.sorting{
+
+    width: 100%;
+    background-color: #F8F4F1;
+
+    ul{
+        // @extend %flex-col;
+        // justify-content: center;
+        list-style: none;
+    }
+    li{
+        padding: 14px 0px 14px 0px;
+        font-family: $opensans;
+        font-size: 1.5em;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: $color-black;
+        margin: 0 auto;
+
+    }
+
+    label{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    input{
+        appearance: none;
+        height: 24px;
+        width: 24px;
+        border: 1px solid $color-black;
+        margin-right: 28px;
+        display: grid;
+        place-content: center;
+    }
+
+    input::before{
+        content: "";
+        height: 24px;
+        width: 24px;
+        background-color: $color-black;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+    }
+
+    input:checked::before {
+        transform: scale(1);
+    }
+
+    // span{
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     height: 24px;
+    //     width: 24px;
+    //     border: 1px solid $color-black;
+    // }
+}

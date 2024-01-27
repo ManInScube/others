@@ -11,23 +11,25 @@ interface IProductCardProps{
    // className: string;
 }
 
-export const ProductCard = ({name, manufacturer, price}: IProductCardProps) =>{
+export const ProductCard = ({name, manufacturer, price, image}: IProductCardProps) =>{
     return(
         <div className={styles.card}>
-            <div className={styles.card__img}>
-                <img src={testImg.src} alt="" />
-                <a>
-                    <FavouriteIcon filled={false}/>
-                </a> 
-            </div>
-            <div className={styles.card__info}>
-                <div>
-                    <p className={styles.card__productName}>{name}</p>
-                    <p className={styles.card__brandName}>{manufacturer}</p>
+            {/* <div className={styles.card__content}> */}
+                <div className={styles.card__img}>
+                    <img src={image} alt="" />
+                    <a>
+                        <FavouriteIcon filled={false}/>
+                    </a> 
                 </div>
+                <div className={styles.card__info}>
+                    <div>
+                        <p className={styles.card__productName}>{name}</p>
+                        <p className={styles.card__brandName}>{manufacturer}</p>
+                    </div>
 
-                <p className={styles.card__price}>{formatPrice(price)} ₽</p>
-            </div>
+                    <p className={styles.card__price}>{formatPrice(price)} ₽</p>
+                </div>
+            {/* </div> */}
         </div>
     )
 }

@@ -13,8 +13,6 @@ import testImgCapsule from '@/public/images/CapsuleImage.png'
 import testImgAbout from '@/public/images/AboutImage.png'
 
 
-
-
 export const HomePage = () =>{
     const [newProducts, setNewProducts] = useState<IProducts>({} as IProducts);
     const [bestsellers, setBestsellers] = useState<IProducts>({} as IProducts);

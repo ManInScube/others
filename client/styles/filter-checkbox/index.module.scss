@@ -1,0 +1,40 @@
+@import '../variables.scss';
+
+.filterCheckbox{
+    h4{
+        color: $color-black;
+        font-family: $grotesk;
+        font-size: 2em;
+        font-weight: 400;
+    }
+    ul{
+
+        li{
+            &:not(:first-child){
+                margin-top: 2em;
+            }
+        }
+        list-style: none;
+        margin-top: 18px;
+        input{
+            display: none;
+        }
+
+        input:checked ~ label{
+            color: black;
+        }
+        label{
+            color: $color-greyLight;
+            font-family: $opensans;
+            font-size: 1.5em;
+            font-weight: 400;
+            cursor: pointer;
+
+
+
+        }
+
+
+    }
+
+}
