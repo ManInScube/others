@@ -1,9 +1,10 @@
 import { IFilterCheckboxProps } from "@/types/catalog";
 import { useState } from "react";
 import styles from '@/styles/filter-checkbox/index.module.scss'
+import { FilterCheckboxItem } from "./FilterCheckboxItem";
 
 
-export const FilterCheckbox = ({name, checkBoxList}: IFilterCheckboxProps) =>{
+export const FilterCheckbox = ({name, checkBoxList, setList, updateList}: IFilterCheckboxProps) =>{
     const [checkedState, setCheckedState] = useState(
         new Array(checkBoxList.length).fill(false)
     );
@@ -20,18 +21,8 @@ export const FilterCheckbox = ({name, checkBoxList}: IFilterCheckboxProps) =>{
         <div className={styles.filterCheckbox}>
             <h4>{name}</h4>
             <ul>
-                {checkBoxList.map((itemName, index)=>(
-                    <li key={index}>
-                        {/* <a>{name}</a> */}
-                        <input 
-                            type="checkbox" 
-                           // name="" 
-                            checked={checkedState[index]}
-                            id={`${name}-${index}`} 
-                            onChange={()=>handleOnChange(index)}
-                            />
-                        <label htmlFor={`${name}-${index}`}>{itemName}</label>
-                    </li>
+                {checkBoxList.map((item)=>(
+                    <FilterCheckboxItem title={item.title} id={item.id} checked={item.checked} event={updateList} key={item.id}/>
                 ))}
             </ul>
 

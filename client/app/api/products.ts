@@ -18,3 +18,12 @@ export const getMoreProductsFx = createEffect(async(url: string) =>  {
 
     return data
 })
+
+//test
+
+export const getProductsByTypeFx = createEffect(
+    async ({url, search}: {url: string, search: string})=>{
+    const {data} = await api.post(url, { search });
+
+    return data
+})

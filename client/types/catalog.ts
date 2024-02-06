@@ -1,7 +1,25 @@
-export const cloth = ['платья/сарафаны', 'блузы/рубашки', 'лонгсливы/худи', 'жакеты/пиджаки'];
-const outerwear = ['плащи/пальто', 'пуховики', 'куртки'];
+import {Event} from 'effector'
 
 export interface IFilterCheckboxProps{
     name: string
-    checkBoxList: Array<string>
+    checkBoxList: Array<IFilterCheckboxItem>
+    setList: Event<IFilterCheckboxItem[]>
+    updateList: Event<IFilterCheckboxItem>
+}
+
+export interface IFilterCheckboxItem{
+    title: string;
+    checked: boolean;
+    id?: string;
+    event: Event<IFilterCheckboxItem>
+}
+
+export interface IPriceRangeProps{
+    priceRange: number[]
+    setPriceRange: (arg0:number[])=>void,
+}
+
+export interface IFilterProps extends IPriceRangeProps{
+    resetHandler: VoidFunction
+    setIsFilterInQuery: (arg0: boolean)=>void
 }

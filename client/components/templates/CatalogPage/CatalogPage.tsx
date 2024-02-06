@@ -1,16 +1,18 @@
-import { getMoreProductsFx, getProductsFx } from '@/app/api/products'
+import { getMoreProductsFx, getProductsByTypeFx, getProductsFx } from '@/app/api/products'
 import { FilterSvg } from '@/components/elements/FilterSvg'
 import { ProductCard } from '@/components/elements/ProductCard/ProductCard'
 import { SortSvg } from '@/components/elements/SortSvg'
 import { Sorting } from '@/components/elements/Sorting'
-import { FilterCheckbox } from '@/components/modules/CatalogPage/FilterCheckbox'
-import { $products, setMore, setProducts } from '@/context/products'
+import { $clothType, $filteredProducts, $outerwearType, $products, setClothType, setMore, setOuterwearType, setProducts } from '@/context/products'
 import styles from '@/styles/catalog/index.module.scss'
-import { cloth } from '@/types/catalog'
 import { useUnit } from 'effector-react'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { Button } from "@/components/elements/Button";
+import { PriceRange } from '@/components/modules/CatalogPage/PriceRange'
+import { Filters } from './Filters'
+import { outerwearTypes } from '@/utils/catalog'
+import { useRouter } from 'next/router'
 
 
 
@@ -19,15 +21,26 @@ export const CatalogPage = () =>{
     const [sortingOpened, setSortingOpened] = useState<boolean>(false);
     const [test, setTest] = useState<boolean>(false);
     const [loadCouner, setLoadCounet] = useState<number>(1);
+    const [priceRange, setPriceRange] = useState<number[]>([1700, 219000]);
+
+    const [isFilterInQuery, setIsFilterInQuery] = useState<boolean>(false);
+
+    const router = useRouter();
 
 
     const products = useUnit($products)
+    const clothTypes = useUnit($clothType);
+    const oterwearType = useUnit($outerwearType);
+    
+    const filteredProducts = useUnit($filteredProducts);
+
+
 
     const loadProducts = async()=>{
         try {
-            const data = await getProductsFx('/products?limit=20&offset=0')
+            const data = await getProductsFx('/products?limit=18&offset=0')
 
-            setProducts(data)
+            setProducts(isFilterInQuery ? filteredProducts : data)
         } catch (error) {
             toast.error((error as Error).message)
         }
@@ -36,7 +49,7 @@ export const CatalogPage = () =>{
     const showMore = async()=>{
 
         try {
-            const data = await getMoreProductsFx(`/products?limit=20&offset=${1}`)
+            const data = await getMoreProductsFx(`/products?limit=18&offset=${1}`)
             setMore(data);
             console.log(products);
            // setProducts([...products, data])
@@ -50,9 +63,69 @@ export const CatalogPage = () =>{
         setSortingOpened(!sortingOpened);
     }
 
+    // const applyTypeFilter = async() =>{
+    //     try {
+
+    //     } catch (error) {
+    //         toast.error((error as Error).message)
+    //     }
+    // }
+
+    // const applyFilters = async()=>{
+    //     try {
+    //         const priceFrom = Math.ceil(priceRange[0])
+    //         const priceTo = Math.ceil(priceRange[1])
+    //         const priceQuery = `priceFrom=${priceFrom}&priceTo${priceTo}`
+    //         const cloth = clothTypes.filter(item=>item.checked).map(item=>item.title)
+    //         //const outerwear = ...
+
+    //         const encodedClothQuery = encodeURIComponent(JSON.stringify(cloth))
+    //         //const encodedOuterwerQuery
+
+    //         const clothQuery = `&cloth=${encodedClothQuery}`
+    //         //outerwear...
+
+    //         if(cloth){
+    //             router.push({
+    //                 query: {
+    //                     ...router.query,
+    //                     cloth: encodedClothQuery,
+    //                     //outerwear
+    //                     priceFrom,
+    //                     priceTo,
+    //                     offset: 0
+    //                 }
+    //             }, undefined, {shallow:true}
+    //             )
+    //             const data = await getProductsFx(`/products?limit=18&offset=0${priceQuery}${clothQuery}`)
+
+    //         }
+    //     } catch (error) {
+    //         toast.error((error as Error).message)
+    //     }
+    // }
+
+    const resetFilters = async() =>{
+
+        try {
+            const data = await getProductsFx('/products?limit=18&offset=0')
+            setClothType(
+                clothTypes.map((item)=>({...item, checked: false}))
+            )
+            // setOuterwearType(
+            //     outerwearTypes.map((item)=>({...item, checked: false}))
+            // )
+            setProducts(data)
+            setPriceRange([1700, 219000])
+            
+        } catch (error) {
+            toast.error((error as Error).message)
+        }
+    }
+
     useEffect(()=>{
         loadProducts()
-    }, [])
+    }, [filteredProducts, isFilterInQuery])
 
 
     return(
@@ -81,83 +154,15 @@ export const CatalogPage = () =>{
                     </div>
                 </div>
 
-
-                {
-                /* <div className={styles.catalog__grid}>
-                        <div className={styles.catalog__div1}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div2}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div3}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div4}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div5}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div6}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div7}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div8}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div9}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div10}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div11}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div12}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div13}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div14}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div15}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div16}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div17}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div18}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-                        <div className={styles.catalog__div19}>
-                            <ProductCard name={'Name'} manufacturer={'Brand'} price={0} image={''}/>
-                        </div>
-
-                    </div> */
-                }
-
                 <div className={styles.catalog__content}>
                     <div className={styles.catalog__filters}>
-  
-                        <FilterCheckbox name={'Одежда'} checkBoxList={cloth} />
-                        <FilterCheckbox name={'Верхняя одежда'} checkBoxList={cloth} />
-
-
+                        <Filters priceRange={priceRange} setPriceRange={setPriceRange} resetHandler={resetFilters} setIsFilterInQuery={setIsFilterInQuery}/>
                     </div>
                     <ul className={styles.catalog__grid}>
                         {products.rows?.length ? (
                         products.rows.map((item)=>(
                         <li className={styles.catalog__div}>
-                            <ProductCard key={item.id} name={item.name} manufacturer={item.manufacturer} price={item.price} image={JSON.parse(item.images)}/>
+                            <ProductCard key={item.id} name={item.name} manufacturer={item.manufacturer} price={item.price} image={JSON.parse(item.images)} />
                         </li>
                         ))
                         ): (
@@ -174,6 +179,13 @@ export const CatalogPage = () =>{
                 <a onClick={showMore}>
                     КНОПКА
                 </a>
+                <br />
+                <br />
+
+                {/* <a onClick={applyTypeFilter}>
+                    Тест
+                </a> */}
+                
             </section>
         </div>
 

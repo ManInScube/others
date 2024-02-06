@@ -3,6 +3,42 @@ const { faker } = require('@faker-js/faker');
 
 const clothManufacturers = ['Measure', 'Zuhat', 'Gapanovich', 'Ermakovishna', 'Aswad', 'deenstreet']
 const productName = ["Cloth", "Balaklava", "Yubka", "Platok"];
+// const productType = [
+//               "Платья", 
+//               "Юбки",
+//               "Худи",
+//               "Логсливы", 
+//               "Платки",
+//               "Брюки", 
+//               "Пиджаки", 
+//               "Куртки", 
+//               "Пальто", 
+//               "Дубленки", 
+//               "Сумки", 
+//               "Балаклавы", 
+//               "Кольца",
+//               "Стикеры",
+//               "Футболки",
+//             ];
+
+const productType = [
+  "Platya",
+  "Yubki",
+  "Hoodi",
+  "Longsleeve",
+  "Platki",
+  "Bryuki",
+  "Pidjaki",
+  "Kurtki",
+  "Palto",
+  "Dublyonki",
+  "Sumki",
+  "Balaklavy",
+  "Kolca",
+  "Stikery",
+  "Futbolki"
+];
+
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -12,6 +48,7 @@ module.exports = {
       [...Array(100)].map(()=>({
       name: productName[Math.floor(Math.random() * productName.length)],
       manufacturer: clothManufacturers[Math.floor(Math.random() * clothManufacturers.length)],
+      type: productType[Math.floor(Math.random() * productType.length)],
       size: "XL",
       price: faker.number.int(10000),
       description: faker.lorem.sentence(10),

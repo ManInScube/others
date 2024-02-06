@@ -15,6 +15,9 @@ module.exports = {
       manufacturer:{
         type: Sequelize.STRING
       },
+      type:{
+        type: Sequelize.STRING
+      },
       size:  {
         type: Sequelize.STRING
       },

@@ -2,7 +2,7 @@ import {Injectable } from '@nestjs/common';
 import { Product } from './products.model';
 import { InjectModel } from '@nestjs/sequelize';
 import { Op } from 'sequelize';
-import { IProductsQuery } from './types';
+import { IProductsFilter, IProductsQuery } from './types';
 
 @Injectable()
 export class ProductsService {
@@ -14,9 +14,23 @@ export class ProductsService {
     async paginateAndFilter(query: IProductsQuery): Promise<{count: number; rows: Product[]}>{
         const limit = +query.limit;
         const offset = +query.offset * 20;
+        const filter = {} as Partial<IProductsFilter>;
+
+        if(query.priceFrom && query.priceTo){
+            filter.price = {
+                [Op.between]: [+query.priceFrom, +query.priceTo],
+            }
+        }
+
+        if(query.type){
+            filter.type = JSON.parse(decodeURIComponent(query.type))
+
+        }
+
         return this.productModel.findAndCountAll({
             limit,
-            offset
+            offset,
+            where: filter
         });
     }
 

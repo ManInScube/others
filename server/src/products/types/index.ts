@@ -1,8 +1,17 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { Op } from "sequelize";
 
 export interface IProductsQuery{
     limit: string;
     offset: string;
+    type: string | undefined;
+    priceFrom: string | undefined;
+    priceTo: string | undefined;
+}
+
+export interface IProductsFilter{
+    price: {[Op.between]: number[]}
+    type: string | undefined;
 }
 
 class Product{

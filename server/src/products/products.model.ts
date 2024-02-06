@@ -10,6 +10,9 @@ export class Product extends Model {
     manufacturer: string;
 
     @Column
+    type: string;
+
+    @Column
     size: string; //enum?
 
     @Column({defaultValue: 0})
