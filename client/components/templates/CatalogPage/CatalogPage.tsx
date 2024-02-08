@@ -1,14 +1,14 @@
 import { getMoreProductsFx, getProductsByTypeFx, getProductsFx } from '@/app/api/products'
-import { FilterSvg } from '@/components/elements/FilterSvg'
+import { FilterSvg } from '@/components/elements/FilterSvg/FilterSvg'
 import { ProductCard } from '@/components/elements/ProductCard/ProductCard'
 import { SortSvg } from '@/components/elements/SortSvg'
-import { Sorting } from '@/components/elements/Sorting'
+import { Sorting } from '@/components/elements/Sorting/Sorting'
 import { $clothType, $filteredProducts, $outerwearType, $products, setClothType, setMore, setOuterwearType, setProducts } from '@/context/products'
 import styles from '@/styles/catalog/index.module.scss'
 import { useUnit } from 'effector-react'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
-import { Button } from "@/components/elements/Button";
+import { Button } from "@/components/elements/Button/Button";
 import { PriceRange } from '@/components/modules/CatalogPage/PriceRange'
 import { Filters } from './Filters'
 import { outerwearTypes } from '@/utils/catalog'
@@ -19,14 +19,10 @@ import { useRouter } from 'next/router'
 export const CatalogPage = () =>{
 
     const [sortingOpened, setSortingOpened] = useState<boolean>(false);
-    const [test, setTest] = useState<boolean>(false);
-    const [loadCouner, setLoadCounet] = useState<number>(1);
     const [priceRange, setPriceRange] = useState<number[]>([1700, 219000]);
-
     const [isFilterInQuery, setIsFilterInQuery] = useState<boolean>(false);
 
     const router = useRouter();
-
 
     const products = useUnit($products)
     const clothTypes = useUnit($clothType);
@@ -39,7 +35,6 @@ export const CatalogPage = () =>{
     const loadProducts = async()=>{
         try {
             const data = await getProductsFx('/products?limit=18&offset=0')
-
             setProducts(isFilterInQuery ? filteredProducts : data)
         } catch (error) {
             toast.error((error as Error).message)
@@ -59,69 +54,11 @@ export const CatalogPage = () =>{
     }
 
     function openSorting(){
-        setTest(true)
         setSortingOpened(!sortingOpened);
     }
 
-    // const applyTypeFilter = async() =>{
-    //     try {
 
-    //     } catch (error) {
-    //         toast.error((error as Error).message)
-    //     }
-    // }
 
-    // const applyFilters = async()=>{
-    //     try {
-    //         const priceFrom = Math.ceil(priceRange[0])
-    //         const priceTo = Math.ceil(priceRange[1])
-    //         const priceQuery = `priceFrom=${priceFrom}&priceTo${priceTo}`
-    //         const cloth = clothTypes.filter(item=>item.checked).map(item=>item.title)
-    //         //const outerwear = ...
-
-    //         const encodedClothQuery = encodeURIComponent(JSON.stringify(cloth))
-    //         //const encodedOuterwerQuery
-
-    //         const clothQuery = `&cloth=${encodedClothQuery}`
-    //         //outerwear...
-
-    //         if(cloth){
-    //             router.push({
-    //                 query: {
-    //                     ...router.query,
-    //                     cloth: encodedClothQuery,
-    //                     //outerwear
-    //                     priceFrom,
-    //                     priceTo,
-    //                     offset: 0
-    //                 }
-    //             }, undefined, {shallow:true}
-    //             )
-    //             const data = await getProductsFx(`/products?limit=18&offset=0${priceQuery}${clothQuery}`)
-
-    //         }
-    //     } catch (error) {
-    //         toast.error((error as Error).message)
-    //     }
-    // }
-
-    const resetFilters = async() =>{
-
-        try {
-            const data = await getProductsFx('/products?limit=18&offset=0')
-            setClothType(
-                clothTypes.map((item)=>({...item, checked: false}))
-            )
-            // setOuterwearType(
-            //     outerwearTypes.map((item)=>({...item, checked: false}))
-            // )
-            setProducts(data)
-            setPriceRange([1700, 219000])
-            
-        } catch (error) {
-            toast.error((error as Error).message)
-        }
-    }
 
     useEffect(()=>{
         loadProducts()
@@ -156,7 +93,7 @@ export const CatalogPage = () =>{
 
                 <div className={styles.catalog__content}>
                     <div className={styles.catalog__filters}>
-                        <Filters priceRange={priceRange} setPriceRange={setPriceRange} resetHandler={resetFilters} setIsFilterInQuery={setIsFilterInQuery}/>
+                        <Filters priceRange={priceRange} setPriceRange={setPriceRange} setIsFilterInQuery={setIsFilterInQuery}/>
                     </div>
                     <ul className={styles.catalog__grid}>
                         {products.rows?.length ? (
@@ -166,25 +103,14 @@ export const CatalogPage = () =>{
                         </li>
                         ))
                         ): (
-                            <span>Nein</span>
+                            <span>Товары не найдены</span>
                         )
                         }
                     </ul>
                     
-
-                    
-                    
                 </div>
-                {/* <Button btnWidth={230} text={'Показать еще'} /> */}
-                <a onClick={showMore}>
-                    КНОПКА
-                </a>
-                <br />
-                <br />
 
-                {/* <a onClick={applyTypeFilter}>
-                    Тест
-                </a> */}
+                <Button btnWidth={230} text={'Показать еще'} onClick={showMore} />
                 
             </section>
         </div>

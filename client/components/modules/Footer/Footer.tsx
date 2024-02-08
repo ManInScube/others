@@ -1,4 +1,4 @@
-import { Logo } from '@/components/elements/Logo'
+import { Logo } from '@/components/elements/Logo/Logo'
 import { ClientsFooterList } from './ClientsFooterList'
 import { AboutFooterList } from './AboutFooterList'
 import styles from '@/styles/footer/index.module.scss'

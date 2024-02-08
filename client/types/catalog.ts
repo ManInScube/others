@@ -20,6 +20,6 @@ export interface IPriceRangeProps{
 }
 
 export interface IFilterProps extends IPriceRangeProps{
-    resetHandler: VoidFunction
+    //resetHandler: VoidFunction
     setIsFilterInQuery: (arg0: boolean)=>void
 }

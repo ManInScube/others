@@ -1,11 +1,11 @@
-import { Button } from "@/components/elements/Button";
-import { Input } from "@/components/elements/Input";
+import { Button } from "@/components/elements/Button/Button";
+import { Input } from "@/components/elements/Input/Input";
 import { NameInput } from "@/components/elements/NameInput";
-import { LastnameInput } from "@/components/elements/LastnameInput";
+import { LastnameInput } from "@/components/modules/AuthPage/LastnameInput";
 import { useForm } from "react-hook-form";
 import { IInputs } from "@/types/auth";
-import { EmailInput } from "@/components/elements/EmailInput";
-import { PasswordInput } from "@/components/elements/PasswordInput";
+import { EmailInput } from "@/components/elements/EmailInput/EmailInput";
+import { PasswordInput } from "@/components/modules/AuthPage/PasswordInput";
 import { toast } from "react-toastify";
 import { signUpFx } from "@/app/api/auth";
 import { PhoneInput } from "@/components/elements/PhoneInput";

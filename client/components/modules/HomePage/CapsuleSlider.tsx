@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ProductCard } from "@/components/elements/ProductCard/ProductCard";
 import styles from '@/styles/capsule-slider/index.module.scss'
-import { ArrowSvg } from "@/components/elements/ArrowSvg";
+import { ArrowSvg } from "@/components/elements/ArrowSvg/ArrowSvg";
 
 
 function SamplePrevArrow(props: any) {

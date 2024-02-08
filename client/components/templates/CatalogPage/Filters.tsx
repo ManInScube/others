@@ -3,21 +3,19 @@ import { FilterCheckbox } from "@/components/modules/CatalogPage/FilterCheckbox"
 import { useState } from "react";
 import { clothTypes } from '@/utils/catalog'
 import { useUnit } from "effector-react";
-import { $clothType, setClothType, setFiltereProducts, setOuterwearType, updateClothType, updateOuterwearType } from "@/context/products";
+import { $clothType, setClothType, setFiltereProducts, setOuterwearType, setProducts, updateClothType, updateOuterwearType } from "@/context/products";
 import { IFilterProps } from "@/types/catalog";
-import { Button } from "@/components/elements/Button";
+import { Button } from "@/components/elements/Button/Button";
 import { useRouter } from "next/router";
 import { getProductsFx } from "@/app/api/products";
 import { toast } from "react-toastify";
 
 
 
-export const Filters = ({priceRange, setPriceRange, resetHandler, setIsFilterInQuery}: IFilterProps) =>{
+export const Filters = ({priceRange, setPriceRange, setIsFilterInQuery}: IFilterProps) =>{
 
-     
     const clothTypes = useUnit($clothType);
     const router = useRouter();
-
 
     const applyFilters = async()=>{
         setIsFilterInQuery(true);
@@ -59,6 +57,36 @@ export const Filters = ({priceRange, setPriceRange, resetHandler, setIsFilterInQ
         }
     }
 
+    const resetFilters = async() =>{
+
+        try {
+            const data = await getProductsFx('/products?limit=18&offset=0')
+
+            const params = router.query
+            delete params.type
+            delete params.priceFrom
+            delete params.priceTo
+
+            router.push({
+                query: { ...params }
+                },
+                undefined,
+                {shallow:true}
+           )
+            setClothType(
+                clothTypes.map((item)=>({...item, checked: false}))
+            )
+            // setOuterwearType(
+            //     outerwearTypes.map((item)=>({...item, checked: false}))
+            // )
+            setProducts(data)
+            setPriceRange([1700, 219000])
+            
+        } catch (error) {
+            toast.error((error as Error).message)
+        }
+    }
+
     
     return(
         <>
@@ -68,7 +96,7 @@ export const Filters = ({priceRange, setPriceRange, resetHandler, setIsFilterInQ
             <PriceRange priceRange={priceRange} setPriceRange={setPriceRange} />
 
             <Button btnWidth={190} text="Применить" onClick={applyFilters}/>
-            <Button btnWidth={190} text="Сбросить" onClick={resetHandler}/>
+            <Button btnWidth={190} text="Сбросить" onClick={resetFilters}/>
 
         </>
 

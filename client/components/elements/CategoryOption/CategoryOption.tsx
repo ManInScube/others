@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowSvg } from "../ArrowSvg"
+import { ArrowSvg } from "../ArrowSvg/ArrowSvg"
 import styles from '@/styles/category-option/index.module.scss'
 
 interface ICategoryOptionProps{

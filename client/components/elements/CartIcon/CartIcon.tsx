@@ -1,5 +1,5 @@
 import { useUnit } from "effector-react"
-import { CartSvg } from "./Header/CartSvg"
+import { CartSvg } from "../Header/CartSvg"
 import { $shoppingCart } from "@/context/shopping-cart"
 import styles from '@/styles/header/header-cart/index.module.scss'
 

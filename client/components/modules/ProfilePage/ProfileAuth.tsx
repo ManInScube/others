@@ -1,4 +1,4 @@
-import { Button } from "@/components/elements/Button"
+import { Button } from "@/components/elements/Button/Button"
 
 export const ProfileAuth = () =>{
     return(
