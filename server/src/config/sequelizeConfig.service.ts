@@ -23,10 +23,10 @@ export class SequelizeConfigService implements SequelizeOptionsFactory {
             models: [User],
             autoLoadModels: true,
             synchronize: true,
-            define: {
-                charset: 'utf8mb4',
-                collate: 'utf8_general_ci',
-            }
+            // define: {
+            //     charset: 'utf8mb4',
+            //     collate: 'utf8_general_ci',
+            // }
         }
     }
 }

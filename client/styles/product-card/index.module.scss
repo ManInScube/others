@@ -4,6 +4,7 @@
     width: 100%;
     border-bottom: 1px solid $color-black;
     position: relative;
+    height: 100%;
     // &::after {
     //     content: "";
     //     display: block;
@@ -11,25 +12,32 @@
     //   }
     //width: 100%;
 
+    &::before {
+        content: "";
+        display: block;
+        padding-top: 150%;
+      }
+
     &__content{
         position: absolute;
         left: 0;
         right: 0;
         top: 0;
         bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     &__img{
         position: relative;
         width: 100%;
         img{
             width: 100%;
+            height: auto;
+
         }
 
-        &::before {
-            content: "";
-            display: block;
-            padding-top: 15%;
-          }
+
     }
     a{
         position: absolute;
@@ -42,11 +50,11 @@
         @extend %flex-row;
         justify-content: space-between;
 
-        &::before {
-            content: "";
-            display: block;
-            padding-top: 15%;
-          }
+        // &::before {
+        //     content: "";
+        //     display: block;
+        //     padding-top: 15%;
+        //   }
     }
 
     &__productName, &__price{

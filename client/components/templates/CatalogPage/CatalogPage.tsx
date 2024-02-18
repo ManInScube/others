@@ -15,7 +15,6 @@ import { outerwearTypes } from '@/utils/catalog'
 import { useRouter } from 'next/router'
 
 
-
 export const CatalogPage = () =>{
 
     const [sortingOpened, setSortingOpened] = useState<boolean>(false);
@@ -29,7 +28,6 @@ export const CatalogPage = () =>{
     const oterwearType = useUnit($outerwearType);
     
     const filteredProducts = useUnit($filteredProducts);
-
 
 
     const loadProducts = async()=>{
@@ -56,9 +54,6 @@ export const CatalogPage = () =>{
     function openSorting(){
         setSortingOpened(!sortingOpened);
     }
-
-
-
 
     useEffect(()=>{
         loadProducts()

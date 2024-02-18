@@ -1,0 +1,124 @@
+@import '../variables.scss';
+
+.cart{
+
+
+    &__row{
+        @extend %flex-row;
+        justify-content: space-between;
+    }
+
+    &__empty{
+        @extend %flex-col;
+        align-items: center;
+        p{
+            margin-top: 3em;
+            font-size: 2.5em;
+            font-family: $grotesk;
+            font-weight: 400;
+            color: $color-greyLight;
+        }
+        
+        button{
+            margin-top: 2em;
+        }
+    }
+
+    h1{
+        font-size: 3.75em;
+        font-family: $grotesk;
+        font-weight: 500;
+    }
+
+    ul{
+        list-style: none;
+        padding-bottom: 40px;
+        border-bottom: 1px solid $color-black;
+
+
+        li{
+            display: flex;
+            flex-direction: row;
+            padding-bottom: 16px;
+            border-bottom: 1px solid $color-black;
+            margin-right: 26px;
+            margin-top: 40px;
+            position: relative;
+
+            .cross{
+                position: absolute;
+                top: 0;
+                right: 0;
+                cursor: pointer;
+            }
+
+            .img{
+                position: relative;
+                width: 28%;
+                min-width: 152px;
+                //border: 1px solid black;
+
+                img{
+                    width: 100%;
+                    display: block;
+                }
+
+                margin-right: 1.5em;
+            }
+
+            .counter{
+                display: flex;
+                flex-direction: row;
+                button{
+                    width: 20px;
+                    cursor: pointer;
+                }
+            }
+
+            .title{
+                font-size: 2.5em;
+                font-family: $grotesk;
+                font-weight: 400;
+                color: $color-black;
+            }
+            
+            span{
+                font-size: 1.5em;
+                font-family: $opensans;
+                font-weight: 400;
+                color: $color-grey;
+            }
+
+            .info{
+                &Group{
+                    @extend %flex-col;
+                    justify-content: space-between;
+                }
+                
+            }
+
+        }
+    }
+
+    &__left{
+        width: 60%;
+        border-right: 1px solid $color-black;
+    }
+
+    &__info{
+        @extend %flex-col;
+        justify-content: space-between;
+        p{
+            font-size: 2.5em;
+            font-family: $grotesk;
+            font-weight: 400;
+        }
+    }
+
+    &__right{
+        @extend %flex-row-center;
+        align-items: center;
+        width: 40%;
+    }
+
+}

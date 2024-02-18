@@ -14,7 +14,7 @@ interface IProductCardProps{
 export const ProductCard = ({name, manufacturer, price, image}: IProductCardProps) =>{
     return(
         <div className={styles.card}>
-            {/* <div className={styles.card__content}> */}
+            <div className={styles.card__content}>
                 <div className={styles.card__img}>
                     <img src={image} alt="" />
                     <a>
@@ -29,7 +29,7 @@ export const ProductCard = ({name, manufacturer, price, image}: IProductCardProp
 
                     <p className={styles.card__price}>{formatPrice(price)} ₽</p>
                 </div>
-            {/* </div> */}
+            </div>
         </div>
     )
 }

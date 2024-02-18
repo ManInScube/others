@@ -34,7 +34,7 @@ export const Header = () =>{
         // if(shouldLoadContent){
         //     setAuthOpen(!authOpen)
         // }
-        
+        setAuthOpen(!authOpen)
     }
 
     return(

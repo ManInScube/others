@@ -19,12 +19,18 @@ export class ShoppingCart extends Model {
     price: number;
 
     @Column
+    color: string;
+
+    @Column
+    size: string;
+
+    @Column
     image: string;
 
     @Column({defaultValue: 0})
     in_stock: number;
 
-    @Column({defaultValue: 0})
+    @Column({defaultValue: 1})
     count: number;
 
     @Column({defaultValue: 0})

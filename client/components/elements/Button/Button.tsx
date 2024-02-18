@@ -1,7 +1,7 @@
 import styles from '@/styles/button/index.module.scss'
 
 interface IButtonProps{
-    btnWidth: number,
+    btnWidth: number | string,
     text: string
     onClick?: VoidFunction
 }

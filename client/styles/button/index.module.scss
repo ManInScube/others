@@ -1,12 +1,15 @@
 .button{
     font-family: 'Open Sans';
-    height: 60px;
-    min-width: 320px;
+    //height: 60px;
+    padding-top: 0.84em;
+    padding-bottom: 0.84em;
+
+    //min-width: 200px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 1.5em;
     border-radius: 0;
     border: 1px solid #1E1E1E;
     background-color: white;

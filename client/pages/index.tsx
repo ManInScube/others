@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css'
 import { Button } from '@/components/elements/Button/Button'
 import { AuthPage } from '@/components/templates/AuthPage/AuthPage'
 import { Modal } from '@/components/layout/Modal'
-import { Cross } from '@/components/elements/Cross'
+import { Cross } from '@/components/elements/Cross/Cross'
 import { Header } from '@/components/modules/Header/Header'
 import { Dropdown } from '@/components/modules/Header/Dropdown'
 import favicon from '@/public/images/favicon.png';
