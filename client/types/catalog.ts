@@ -23,3 +23,12 @@ export interface IFilterProps extends IPriceRangeProps{
     //resetHandler: VoidFunction
     setIsFilterInQuery: (arg0: boolean)=>void
 }
+
+export interface IQueryParams{
+    offset: string
+    firs: string
+    products: string
+    priceFrom: string
+    priceTo: string
+    productId: string
+}

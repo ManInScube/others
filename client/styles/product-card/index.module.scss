@@ -5,12 +5,7 @@
     border-bottom: 1px solid $color-black;
     position: relative;
     height: 100%;
-    // &::after {
-    //     content: "";
-    //     display: block;
-    //     padding-bottom: 75%;
-    //   }
-    //width: 100%;
+    cursor: pointer;
 
     &::before {
         content: "";

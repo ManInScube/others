@@ -93,8 +93,8 @@ export const CatalogPage = () =>{
                     <ul className={styles.catalog__grid}>
                         {products.rows?.length ? (
                         products.rows.map((item)=>(
-                        <li className={styles.catalog__div}>
-                            <ProductCard key={item.id} name={item.name} manufacturer={item.manufacturer} price={item.price} image={JSON.parse(item.images)} />
+                        <li key={item.id} className={styles.catalog__div}>
+                            <ProductCard id={item.id} name={item.name} manufacturer={item.manufacturer} price={item.price} image={JSON.parse(item.images)} />
                         </li>
                         ))
                         ): (

@@ -1,9 +1,10 @@
 import { formatPrice } from "@/utils/common";
 import { FavouriteIcon } from "./FavouriteIcon"
 import styles from '@/styles/product-card/index.module.scss'
-import testImg from '@/public/images/CardImage.png'
+import Link from "next/link";
 
 interface IProductCardProps{
+    id: number;
     name: string;
     manufacturer: string;
     price: number;
@@ -11,9 +12,10 @@ interface IProductCardProps{
    // className: string;
 }
 
-export const ProductCard = ({name, manufacturer, price, image}: IProductCardProps) =>{
+export const ProductCard = ({id, name, manufacturer, price, image}: IProductCardProps) =>{
     return(
         <div className={styles.card}>
+            <Link href={`/catalog/${id}`} passHref legacyBehavior>
             <div className={styles.card__content}>
                 <div className={styles.card__img}>
                     <img src={image} alt="" />
@@ -30,6 +32,8 @@ export const ProductCard = ({name, manufacturer, price, image}: IProductCardProp
                     <p className={styles.card__price}>{formatPrice(price)} ₽</p>
                 </div>
             </div>
+            </Link>
+
         </div>
     )
 }

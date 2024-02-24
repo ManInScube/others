@@ -3,6 +3,7 @@ export interface IProduct{
     name: string;
     manufacturer: string;
     size: string;
+    type: string;
     price: number;
     description: string;
     color: string;

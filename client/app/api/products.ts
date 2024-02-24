@@ -27,3 +27,9 @@ export const getProductsByTypeFx = createEffect(
 
     return data
 })
+
+export const getProductFx = createEffect(async(url: string) =>  {
+    const {data} = await api.get(url);
+
+    return data
+})

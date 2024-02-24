@@ -9,11 +9,13 @@ export const getCartItemFx = createEffect(async (url: string) => {
     return data
 })
 
-export const addToCartFx = createEffect(async ({url, username, productId}: IAddToCartFx) => {
-    const {data} = await api.post(url, {username: productId})
-
-    return data
-})
+export const addToCartFx = createEffect(
+    async ({ url, email, productId }: IAddToCartFx) => {
+      const { data } = await api.post(url, { email, productId })
+  
+      return data
+    }
+  )
 
 export const removeFromCartFx = createEffect(async (url: string) => {
     await api.delete(url)

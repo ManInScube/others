@@ -43,13 +43,13 @@ export const CapsuleSlider = () =>{
 
 
             <div className={styles.capsuleSlider__slide}>
-                <ProductCard name='{item.name}' manufacturer="{item.manufacturer}" price={9999} image="{item.images}" />
+                <ProductCard id={1} name='{item.name}' manufacturer="{item.manufacturer}" price={9999} image="{item.images}" />
             </div>
             <div className={styles.capsuleSlider__slide}>
-                <ProductCard name='{item.name}' manufacturer="{item.manufacturer}" price={9999} image="{item.images}" />
+                <ProductCard id={2} name='{item.name}' manufacturer="{item.manufacturer}" price={9999} image="{item.images}" />
             </div>
             <div className={styles.capsuleSlider__slide}>
-                <ProductCard name='{item.name}' manufacturer="{item.manufacturer}" price={9999} image="{item.images}" />
+                <ProductCard id={3} name='{item.name}' manufacturer="{item.manufacturer}" price={9999} image="{item.images}" />
             </div>
 
 

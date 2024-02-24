@@ -22,7 +22,9 @@ export const setType = products.createEvent<IProducts>()
 
 export const setFiltereProducts = products.createEvent<IProducts>()
 
+export const setSimilarProducts = products.createEvent<IProducts>()
 
+export const setViewedProducts = products.createEvent<IProducts>()
 
 const updateStore = (state: IProducts, data: IProducts) =>{
     data.rows.forEach((item)=>state.rows.push(item))
@@ -87,6 +89,19 @@ export const $products = products
         )
         .on(setFiltereProducts, (_, item)=>item)
 
+
+    export const $similarProducts = products
+        .createStore<IProducts>(
+            {} as IProducts
+        )
+        .on(setSimilarProducts, (_, item)=>item)
+
+    export const $viewedProducts = products
+        .createStore<IProducts>(
+            {} as IProducts
+        )
+        .on(setViewedProducts, (_, item)=>item)
+        
 
 
         

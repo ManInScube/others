@@ -43,7 +43,7 @@ return(
         {items && (
             items.map((item)=>(
                     <div className={styles.productSlider__slide}>
-                        <ProductCard name={item.name} manufacturer={item.manufacturer} price={item.price} image={item.images} />
+                        <ProductCard id={item.id} name={item.name} manufacturer={item.manufacturer} price={item.price} image={JSON.parse(item.images)} />
                     </div>
                 ))
             )

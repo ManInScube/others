@@ -1,0 +1,30 @@
+.productImagesList{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    width: 100%;
+    &__image{
+        width: 83%;
+        position: relative;
+        img{
+            width: 100%;
+        }
+    }
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        width: 17%;
+        list-style: none;
+        gap: 1.5em;
+
+        li{
+            width: 100%;
+            position: relative;
+            cursor: pointer;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}

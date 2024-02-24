@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+.accordion{
+    width: 100%;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    button{
+        width: 100%;
+        background: none;
+        border: none;
+        font-family: $grotesk;
+        font-weight: 400;
+        font-size: 2.5em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+    }
+    svg{
+        transform: rotate(90deg);
+    }
+
+    &__expanded{
+        
+    }
+}

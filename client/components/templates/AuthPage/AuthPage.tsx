@@ -2,10 +2,10 @@ import { SignInForm } from "@/components/modules/AuthPage/SignInForm"
 import { SignUpForm } from "@/components/modules/AuthPage/SignUpForm"
 import { useState } from "react"
 import styles from '@/styles/auth/index.module.scss'
+import { useRedirectByUserCheck } from "@/hooks/useRedirectByUserCheck"
 
 
 export const AuthPage = () =>{
-
     const[register, setRegister] = useState<boolean>(false)
 
     return(

@@ -1,0 +1,59 @@
+@import '../variables.scss';
+
+.product{
+    &__main{
+        @extend %flex-row;
+        justify-content: center;
+        gap: 1.5em;
+        width: 83%;
+    }    
+    &__slider{
+        width: 60%;
+        overflow: hidden;
+        height: auto;
+    }
+    &__info{
+        @extend %flex-col;
+    }
+
+    &__col{
+        @extend %flex-col;
+        justify-content: space-between;
+        width: 40%;
+
+    }
+
+    //->to components
+    &__title{
+        font-size: 3.75em;
+        font-weight: 500;
+        font-family: $grotesk;
+        border-bottom: 1px solid $color-black;
+    }
+
+    &__brand{
+        font-size: 1.5em;
+        font-weight: 400;
+        font-family: $opensans;
+        color: $color-grey;
+    }
+
+    &__price{
+        font-size: 2.5em;
+        font-weight: 400;
+        font-family: $grotesk;
+        margin-top: 24px;
+        
+    }
+    
+
+    &__offers{
+        @extend %flex-row;
+        justify-content: space-between;
+        margin-top: 7.5em;
+    }
+
+    &__carousel{
+        margin-top: 7.5em;
+    }
+}

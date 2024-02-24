@@ -3,15 +3,19 @@ import { Button } from '@/components/elements/Button/Button';
 import { CartItem } from '@/components/modules/CartPage/CartItem';
 import { $shoppingCart, $totalPrice, setShoppingCart, setTotalPrice } from '@/context/shopping-cart';
 import { $user } from '@/context/user';
+import { useRedirectByUserCheck } from '@/hooks/useRedirectByUserCheck';
 import styles from '@/styles/cart/index.module.scss'
 import { useUnit } from 'effector-react';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 export const CartPage = () =>{
+    const {shouldLoadContent} = useRedirectByUserCheck(false)
+
     const shoppingCart = useUnit($shoppingCart);
     const user = useUnit($user);
     const total_price = useUnit($totalPrice);
+    
 
     useEffect(()=>{
         loadCartItem();
@@ -31,7 +35,8 @@ export const CartPage = () =>{
     const loadCartItem = async() => {
         try {
             //const cartItems = await getCartItemFx(`/shopping-cart/${user.userId}`);
-            const cartItems = await getCartItemFx(`/shopping-cart/4`);
+            const cartItems = await getCartItemFx(`/shopping-cart/${user.userId}`);
+            await console.log("name" + user.name)
             setShoppingCart(cartItems)
         } catch (error) {
             toast.error((error as Error).message)

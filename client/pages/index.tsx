@@ -12,9 +12,11 @@ import favicon from '@/public/images/favicon.png';
 import { Footer } from '@/components/modules/Footer/Footer'
 import Layout from '@/components/layout/Layout'
 import { HomePage } from '@/components/templates/HomePage/HomePage'
+import { useRedirectByUserCheck } from '@/hooks/useRedirectByUserCheck'
 //import globalStyles from '../styles/globals.scss';
 
 export default function Auth() {
+  const {shouldLoadContent} = useRedirectByUserCheck()
   return (
     <>
       <Head>
@@ -26,7 +28,6 @@ export default function Auth() {
 
 
       <Layout>
-        {/* <Modal childred={<AuthPage/>} /> */}
         <HomePage/>
       </Layout>
 

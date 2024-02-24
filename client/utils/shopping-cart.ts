@@ -1,19 +1,21 @@
 import { addToCartFx, removeFromCartFx, updateCartItemFx } from "@/app/api/shopping-cart"
 import { removeShoppingCartItem, updateCartItemTotalPrice, updateShoppingCart } from "@/context/shopping-cart"
 
-export const toggleCartItem = async (username: string, productId: number, isInCart: boolean) =>{
+export const toggleCartItem = async (email: string, productId: number, isInCart?: boolean) =>{
     try {
-        if(isInCart){
-            await removeFromCartFx(`/shopping-cart/one/${productId}`)
-            removeShoppingCartItem(productId)
-            return
-        }
+        // if(isInCart){
+        //     await removeFromCartFx(`/shopping-cart/one/${productId}`)
+        //     removeShoppingCartItem(productId)
+        //     return
+        // }
 
         const data = await addToCartFx({
-            url: '/shopping-cart/add/',
-            username,
+            url: '/shopping-cart/add',
+            email,
             productId
         })
+
+        console.log(data);
 
         updateShoppingCart(data)
     } catch (error) {
@@ -37,4 +39,4 @@ export const updateTotalPrice = async (total_price: number, productId: number) =
     })
   
     updateCartItemTotalPrice({ productId, total_price: data.total_price })
-  }
+}
