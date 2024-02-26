@@ -117,8 +117,10 @@
 
     &__right{
         @extend %flex-row-center;
-        align-items: center;
+        //align-items: center;
+        margin-top: 10em;
         width: 40%;
+        justify-content: flex-end;
     }
 
 }

@@ -8,8 +8,11 @@ import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
 import styles from '@/styles/auth/index.module.scss'
 import { showAuthError } from "@/utils/errors"
+import { useRouter } from "next/router"
 
 export const SignInForm = ()=> {
+    const router = useRouter()
+
     const {
         register,
         formState:{errors},
@@ -26,6 +29,7 @@ export const SignInForm = ()=> {
           })
           resetField('email');
           resetField('password');
+          router.push('/profile')
       } catch (error) {
           showAuthError(error);
       }

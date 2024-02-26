@@ -1,0 +1,29 @@
+@import '../variables.scss';
+
+.order{
+    width: 80%;
+
+    &__title{
+        font-size: 2.5em;
+        font-family: $grotesk;
+    }
+
+    &__input{
+        margin-top: 3.75em;
+    }
+
+    &__checkbox{
+        font-size: 1.25em;
+        font-family: $opensans;
+        margin-top: 4em;
+
+        a{
+            font-weight: 600;
+        }
+    }
+
+    button{
+        margin-top: 1.5em;
+    }
+    
+}

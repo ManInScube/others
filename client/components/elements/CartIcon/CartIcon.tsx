@@ -10,24 +10,23 @@ import { $user } from "@/context/user"
 
 export function CartIcon(){
     const {shouldLoadContent} = useRedirectByUserCheck()
+    const user = useUnit($user);
     const shoppingCart = useUnit($shoppingCart);
     const [count, setCount] = useState<number>(0);
-    const user = useUnit($user);
 
-    // useEffect(()=>{
-    //     loadCartItem();
-    //     setCount(shoppingCart.length)
-    // },[])
+    useEffect(()=>{
+        loadCartItem();
+    },[user])
 
 
-    // const loadCartItem = async() => {
-    //     try {
-    //         const cartItems = await getCartItemFx(`/shopping-cart/${user.userId}`);
-    //         setShoppingCart(cartItems)
-    //     } catch (error) {
-    //         toast.error((error as Error).message)
-    //     }
-    // } 
+    const loadCartItem = async() => {
+        try {
+            const cartItems = await getCartItemFx(`/shopping-cart/${user.userId}`);
+            setShoppingCart(cartItems)
+        } catch (error) {
+            toast.error((error as Error).message)
+        }
+    } 
 
     return(
         <div className={styles.headerCart}>
