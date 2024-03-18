@@ -19,7 +19,7 @@ export class ShoppingCartService {
     }
 
     async add(addToCartDto: AddToCartDto){
-        const cart = new ShoppingCart(); //а если корзина уже есть?
+        const cart = new ShoppingCart(); 
         const user = await this.usersService.findOne({where: {email: addToCartDto.email}});
         const product = await this.productsService.findOne(addToCartDto.productId);
 

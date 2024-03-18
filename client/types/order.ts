@@ -1,6 +1,6 @@
 export interface IDeliveryItem{
     city: string
-    sreet: string
+    street: string
     house: string
     apartment: string
 }
@@ -13,4 +13,13 @@ export interface IMakePaymentFx{
 export interface ICheckPaymentFx{
     url: string
     paymentId: string
+}
+
+export interface IAddAddressFx{
+    url: string
+    userId: string
+    city: string
+    street: string
+    house: string
+    apartment: string
 }

@@ -58,7 +58,7 @@ export const CartPage = () =>{
             <div className={styles.cart__row}>
                 <div className={styles.cart__left}>
                     <h1>Корзина: {shoppingCart.length}</h1>
-                    <ul>
+                    <ul className={styles.cart__list}>
                         {shoppingCart.map((item)=>(
                             <CartItem props={item} />
                         ))}

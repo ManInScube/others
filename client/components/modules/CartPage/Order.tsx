@@ -7,6 +7,8 @@ import { removeFromCartFx } from "@/app/api/shopping-cart"
 import { $user } from "@/context/user"
 import { Button } from "@/components/elements/Button/Button"
 import { useEffect } from "react"
+import styles from '@/styles/order/index.module.scss'
+
 
 const Order = () =>{
 
@@ -63,10 +65,10 @@ const Order = () =>{
     }
 
     return(
-        <>
+        <div className={styles.order__container}>
             <OrderAddressForm/>
             <Button btnWidth={"100%"} text={"Оплатить"} onClick={makePay}/>
-        </>
+        </div>
     )
 }
 

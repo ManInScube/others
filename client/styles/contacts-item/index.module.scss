@@ -1,0 +1,29 @@
+@import '../variables.scss';
+
+.item{
+    &__title{
+        font-family: $grotesk;
+        font-weight: 400;
+        font-size: 2.5em;
+    }
+
+    &__row{
+        font-family: $opensans;
+        font-weight: 400;
+        font-size: 1.5em;
+        line-height: 2em;
+    }
+
+    &__row:first-child{
+        margin-top: 1.5em;
+    }
+
+    span{
+        font-weight: 700;
+
+    }
+
+    
+
+    
+}

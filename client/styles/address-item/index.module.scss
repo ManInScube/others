@@ -1,0 +1,13 @@
+@import '../variables.scss';
+
+.address{
+    list-style: none;
+    border: 2px solid $color-black;
+    font-family: $opensans;
+    font-size: 1.5em;
+    font-weight: 400px;
+    color: $color-grey;
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+    padding-left: 1.59em;
+}

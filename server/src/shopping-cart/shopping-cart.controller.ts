@@ -12,8 +12,8 @@ export class ShoppingCartController {
     @ApiOkResponse({type: [GetAllResponse]})
     @Get(':id')
     @UseGuards(AuthenticatedGuard)
-    getAll(@Param('id') iserId: string){
-        return this.shoppingCartService.findAll(iserId);
+    getAll(@Param('id') userId: string){
+        return this.shoppingCartService.findAll(userId);
     }
 
     @ApiOkResponse({type: AddToCartResponse})
